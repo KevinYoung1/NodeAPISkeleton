@@ -7,6 +7,6 @@ This API was built using
 * NPM
 * NodeJS
 * ExpressJS
-* Postres
+* Postgres
 
 And is using a MVC styled project structre (currently minus the "V" as this is only the backend portion)
