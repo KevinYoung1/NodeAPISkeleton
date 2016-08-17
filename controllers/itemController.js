@@ -6,8 +6,6 @@ var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/to
 
 var todoItem = require('../models/todoItems.js');
 
-
-
 /*POST new todo item*/
 router.post('/api/v1/todos', function(req, res) {
     var data = {text: req.body.text, complete: false};
@@ -21,10 +19,8 @@ router.get('/api/v1/todos', function(req, res) {
 
 /*PUT for updating items*/
 router.put('/api/v1/todos/:todo_id', function(req, res) {
-    // Grab data from the URL parameters
+    // Extract data from request
     var id = req.params.todo_id;
-
-    // Grab data from http request
     var data = {text: req.body.text, complete: req.body.complete};
     return todoItem.put(id, data, res);
 
@@ -32,7 +28,7 @@ router.put('/api/v1/todos/:todo_id', function(req, res) {
 
 /*DELETE for items*/
 router.delete('/api/v1/todos/:todo_id', function(req, res) {
-    // Grab data from the URL parameters
+    // Extract data from request
     var id = req.params.todo_id;
     return todoItem.delete(id, res);
 });
